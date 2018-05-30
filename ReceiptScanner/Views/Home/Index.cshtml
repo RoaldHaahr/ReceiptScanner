@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@section Scripts {
+    @*<script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            var selectElements = document.querySelector('select');
+            var instances = M.FormSelect.init(selectElements);
+        });
+    </script>*@
+    <script type="text/javascript" src="~/Scripts/scan.js"></script>
+}
+
+    <div class="row">
+        <nav class="nav-menu col s12">
+            <ul>
+                <li>
+                    <div class="input-field file">
+                        <a class="btn-small" href="#">Gem kvittering</a>
+                        <input type="file" accept="image/*" class="js-receipt-upload" />
+                    </div>
+                </li>
+                <li>
+                    <a class="btn-small" href="overview.html">Oversigt</a>
+                </li>
+                <li>
+                    <a class="btn-small" href="#">Tilbud</a>
+                </li>
+                <li>
+                    <a class="btn-small" href="#">Indstillinger</a>
+                </li>
+            </ul>
+        </nav>
+        <form action="index_submit" method="get" accept-charset="utf-8" class="receipt-information save col s12">
+            <img src="" class="receipt-preview" alt="">
+            <div>
+                <div class="input-field text inputjs">
+                    <label for="name">Navn</label>
+                    <input type="text" name="name">
+                </div>
+                <div class="input-field text inputjs">
+                    <input type="text" name="category">
+                    <label for="category">Kategori</label>
+                </div>
+                <div class="total-price">
+                    <div class="input-field number inputjs">
+                        <input type="number" name="total" step="0.01">
+                        <label for="total">Total pris</label>
+                    </div>
+                    <div class="input-field select inputjs">
+                        <select name="currency">
+                            <option value="DKK" selected>DKK</option>
+                        </select>
+                        <label for="currency">Valuta</label>
+                    </div>
+                </div>
+                <div class="input-field date inputjs">
+                    <input type="date" name="date">
+                    <label for="date">Dato</label>
+                </div>
+                <div class="input-field textarea inputjs">
+                    <textarea name="notes" rows="3" cols="30"></textarea>
+                    <label for="notes">Noter</label>
+                </div>
+                <div class="input-field textarea inputjs">
+                    <textarea name="content" rows="3" cols="30" disabled></textarea>
+                    <label for="content">Indhold</label>
+                </div>
+                <div class="input-field submit">
+                    <input type="submit" name="saveReceipt" value="Gem">
+                    <label for="saveReceipt"></label>
+                </div>
+            </div>
+
+        </form>
+        <canvas id="c" class="col12"></canvas>
+        <img src="" id="prev" alt="">
+        <img src="" id="prevRotated" alt="">
+    </div>

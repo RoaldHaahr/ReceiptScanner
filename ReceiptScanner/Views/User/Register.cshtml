@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+}
+
+<div class="row">
+    <form class="col s12" method="post" action="@Url.Action("Register", "User")">
+        <div class="row">
+            <h4 class="center-align">Register</h4>
+            <div class="input-field col s6">
+                <input type="text" name="first_name" id="first_name" />
+                <label for="first_name">First name</label>
+            </div>
+            <div class="input-field col s6">
+                <input type="text" name="last_name" id="last_name" class="validate" />
+                <label for="last_name">Last name</label>
+            </div>
+            <div class="input-field col s12">
+                <input type="email" name="email" id="email" />
+                <label for="email">Email</label>
+            </div>
+            <div class="input-field col s12">
+                <input type="email" name="repeat_email" id="repeat_email" />
+                <label for="repeat_email">Repeat email</label>
+            </div>
+            <div class="input-field col s12">
+                <input type="password" name="password" id="password" />
+                <label for="password">Password</label>
+            </div>
+            <div class="input-field col s12">
+                <input type="password" name="password_repeat" id="password_repeat" />
+                <label for="password_repeat">Repeat password</label>
+            </div>
+            <div class="input-field col s12">
+                <input type="submit" value="Register" />
+            </div>
+        </div>
+        <div class="row">
+            @*<div class="col s12 center-align">
+                <a href="#" class="btn-small waves-effect waves-light">Register</a>
+            </div>*@
+
+        </div>
+    </form>
+</div>
