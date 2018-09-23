@@ -32,8 +32,13 @@ namespace ReceiptScanner.Controllers
                 return View();
             }
 
-            Session["userID"] = user.Id;
-            //return View("../Home/Index");
+            Session["User_Id"] = user.Id;
+
+            if (user.UserAccounts.Count == 1)
+            {
+                Session["Account_Id"] = user.UserAccounts.FirstOrDefault().Account_Id;
+            }
+
             return RedirectToAction("Index", "Home");
         }
 

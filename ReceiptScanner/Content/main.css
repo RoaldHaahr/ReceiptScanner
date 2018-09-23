@@ -1,0 +1,286 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+body {
+  background-color: #EEEEEE;
+  color: #222222; }
+
+.full-height {
+  min-height: 100vh; }
+
+.full-width {
+  min-width: 100%; }
+
+.center {
+  text-align: center; }
+
+* {
+  font-family: 'Open Sans', sans-serif; }
+
+a {
+  text-decoration: none;
+  color: #666666; }
+  a:hover {
+    text-decoration: underline; }
+
+* {
+  box-sizing: border-box; }
+
+body {
+  margin: 0;
+  width: 100%; }
+
+html {
+  width: 100vw;
+  overflow-x: hidden;
+  z-index: 5; }
+
+.col4 {
+  grid-column-end: span 4; }
+
+.col8 {
+  grid-column-end: span 8; }
+
+.col12 {
+  grid-column-end: span 12; }
+
+main {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-column-gap: 0;
+  grid-row-gap: 0; }
+
+article.receipt div.preview {
+  position: relative;
+  width: 100%;
+  height: 120px;
+  overflow: hidden;
+  background-size: cover; }
+  article.receipt div.preview p {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(34, 34, 34, 0.8);
+    text-align: center; }
+    article.receipt div.preview p a {
+      line-height: 120px;
+      color: #EEEEEE; }
+
+article.receipt div.information {
+  padding: 6px; }
+
+canvas {
+  display: block; }
+  canvas#c {
+    display: none; }
+
+.card {
+  margin: .25em;
+  padding: .25em;
+  border: 1px solid #222222;
+  border-radius: 3px; }
+  .card h4 {
+    margin: 0;
+    color: #222222; }
+  .card div:after {
+    content: "";
+    display: block;
+    clear: both; }
+  .card div time {
+    margin: 0;
+    color: #222222;
+    float: left; }
+  .card div p {
+    margin: 0;
+    color: #222222;
+    float: right; }
+
+.crop-wrapper {
+  padding: 1em 1em 0 0; }
+  .crop-wrapper #crop-box {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/receipt-demo2.jpg");
+    margin: 0 auto;
+    display: inline-block;
+    position: relative;
+    width: auto; }
+    .crop-wrapper #crop-box .crop-frame {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      border: 1px solid blue; }
+    .crop-wrapper #crop-box .shadow-box {
+      position: absolute;
+      background: rgba(34, 34, 34, 0.6);
+      cursor: move; }
+      .crop-wrapper #crop-box .shadow-box .resize-bullet {
+        display: block;
+        background-color: blue;
+        width: 6px;
+        height: 6px; }
+      .crop-wrapper #crop-box .shadow-box#sb-l {
+        left: 0;
+        top: 0;
+        bottom: 0; }
+        .crop-wrapper #crop-box .shadow-box#sb-l .resize-bullet {
+          position: absolute;
+          top: calc(50% - 6px);
+          right: calc(6px / 2 * -1); }
+      .crop-wrapper #crop-box .shadow-box#sb-t {
+        top: 0;
+        left: 0;
+        right: 0; }
+        .crop-wrapper #crop-box .shadow-box#sb-t .resize-bullet {
+          position: absolute;
+          left: calc(50% - 6px);
+          bottom: calc(6px / 2 * -1); }
+      .crop-wrapper #crop-box .shadow-box#sb-r {
+        right: 0;
+        top: 0;
+        bottom: 0; }
+        .crop-wrapper #crop-box .shadow-box#sb-r .resize-bullet {
+          position: absolute;
+          top: calc(50% - 6px);
+          left: calc(6px / 2 * -1); }
+      .crop-wrapper #crop-box .shadow-box#sb-b {
+        bottom: 0;
+        left: 0;
+        right: 0; }
+        .crop-wrapper #crop-box .shadow-box#sb-b .resize-bullet {
+          position: absolute;
+          left: calc(50% - 6px);
+          top: calc(6px / 2 * -1); }
+  .crop-wrapper .crop-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #000000;
+    opacity: .5; }
+  .crop-wrapper .view-box {
+    overflow: hidden; }
+    .crop-wrapper .view-box .view-frame img {
+      display: block; }
+
+nav.nav-menu ul li {
+  position: relative;
+  padding: 6px;
+  text-align: center; }
+
+video {
+  height: 100vh; }
+
+.camera-stream {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden; }
+
+form.receipt-form {
+  display: none;
+  position: absolute;
+  top: 2.5em;
+  width: 100vW;
+  height: calc(100vh - 2.5em);
+  background-color: #fff; }
+  form.receipt-form img.receipt-preview {
+    position: absolute;
+    width: 100%;
+    image-orientation: from-image; }
+  form.receipt-form > div {
+    position: absolute;
+    bottom: 0;
+    padding: .5em .4em;
+    width: 100%;
+    background-color: #EEEEEE; }
+    form.receipt-form > div .total-price {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-column-gap: 6px;
+      grid-row-gap: 6px; }
+      form.receipt-form > div .total-price .input-field.number {
+        grid-column-end: span 9; }
+      form.receipt-form > div .total-price .input-field.select {
+        grid-column-end: span 3; }
+    form.receipt-form > div .input-field {
+      position: relative;
+      padding: 0 0 4px; }
+      form.receipt-form > div .input-field input, form.receipt-form > div .input-field textarea, form.receipt-form > div .input-field select {
+        width: 100%;
+        font-size: 12px; }
+
+header {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-column-gap: 0;
+  grid-row-gap: 0; }
+  header.dark {
+    background-color: #222222; }
+    header.dark h1, header.dark span {
+      color: #EEEEEE; }
+  header > div {
+    padding: .65em 0;
+    height: 2.5em; }
+    header > div h1 {
+      margin: 0;
+      font-size: 1em; }
+    header > div img {
+      height: .8em; }
+    header > div span {
+      position: relative;
+      left: 6px; }
+
+.mobile-menu img {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  z-index: 2; }
+
+.input-field.file input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+  opacity: 0; }
+
+.icon {
+  max-height: 100%; }
+
+img.image {
+  width: 100%;
+  max-width: 100%; }
+
+.inputjs {
+  position: relative;
+  margin-top: .8em; }
+  .inputjs label {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    font-size: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    pointer-events: none; }
+    .inputjs label.active {
+      top: -12px !important; }
+  .inputjs input, .inputjs select, .inputjs textarea {
+    border: 1px solid #333;
+    border-radius: 3px;
+    padding-left: 6px;
+    font-size: 10px; }
+    .inputjs input:focus, .inputjs select:focus, .inputjs textarea:focus {
+      outline: none; }
+      .inputjs input:focus::-webkit-datetime-edit, .inputjs select:focus::-webkit-datetime-edit, .inputjs textarea:focus::-webkit-datetime-edit {
+        color: #222222; }
+    .inputjs input::-webkit-datetime-edit, .inputjs select::-webkit-datetime-edit, .inputjs textarea::-webkit-datetime-edit {
+      color: transparent; }
+  .inputjs.textarea {
+    padding-top: 5px !important; }
+    .inputjs.textarea label {
+      top: calc(6px + 3px); }
+  .inputjs.select select {
+    padding-left: 0; }

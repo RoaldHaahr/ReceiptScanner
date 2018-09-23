@@ -4,6 +4,8 @@ var costsRegex = new RegExp(/\s-?\d*\.? ?\d*,\d{2}\s/g);
 //var zipRegex = new RegExp(/\d{4} [ÆæØøÅåA-Za-z]{2,}( [ÆæØøÅåA-Za-z]{1,})?/);
 var nameRegex = new RegExp(/([ÆæØøÅåA-Za-z]* ?){1,}/);
 
+var b64Img = "";
+
 var CV_URL = 'https://vision.googleapis.com/v1/images:annotate?key=' + window.apiKey;
 
 // amounts to be rotated for the corresponding exif information
@@ -82,6 +84,7 @@ function uploadFiles(event) {
         rotateBase64Image(base64Image, value, function (rotatedImage) {
             $('.receipt-information img').attr('src', rotatedImage);
             //sendFileToCloudVision(rotatedImage.replace('data:' + file.type + ';base64,', ''));
+            b64Img = rotatedImage;
             sendFileToCloudVision(rotatedImage);
         });
     });
@@ -164,15 +167,16 @@ function displayJSON(data) {
             total += cost;
         }
     });
-
-    $('input[name=name]').val(name);
+    $('input[name=Base64_Image]').val(b64Img);
+    $('input[name=Name]').val(name);
     //$('input[name=streetname]').val(streetName);
     //$('input[name=streetnumber]').val(streetNumber);
     //$('input[name=zip]').val(zip);
     //$('input[name=city]').val(city);
-    $('input[name=date]').val(date);
-    $('input[name=total]').val(total);
-    $('textarea[name=content]').html(text);
+    $('input[name=Date]').val(date);
+    $('input[name=Price]').val(total);
+    $('textarea[name=ContentPreview]').html(text);
+    $('input[name=Content]').val(text.replace(/\n/g, " "));
     document.getElementsByClassName("receipt-information")[0].style.display = "block";
     // words.splice(1, words.length-1).forEach(word => $('ul.words').append('<li>' + word.description + '</li>'));
     // var evt = new Event('results-displayed');

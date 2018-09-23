@@ -3,12 +3,6 @@
 }
 
 @section Scripts {
-    @*<script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function () {
-            var selectElements = document.querySelector('select');
-            var instances = M.FormSelect.init(selectElements);
-        });
-    </script>*@
     <script type="text/javascript" src="~/Scripts/scan.js"></script>
 }
 
@@ -32,44 +26,45 @@
                 </li>
             </ul>
         </nav>
-        <form action="index_submit" method="get" accept-charset="utf-8" class="receipt-information save col s12">
+        <form action="@Url.Action("Save", "Receipt")" method="post" accept-charset="utf-8" class="receipt-information save col s12">
+            <input type="text" name="Base64_Image" id="js-input-base64" hidden/>
             <img src="" class="receipt-preview" alt="">
             <div>
                 <div class="input-field text inputjs">
-                    <label for="name">Navn</label>
-                    <input type="text" name="name">
+                    <input type="text" name="Name">
+                    <label for="Name">Navn</label>
                 </div>
                 <div class="input-field text inputjs">
-                    <input type="text" name="category">
-                    <label for="category">Kategori</label>
+                    <input type="text" name="Category">
+                    <label for="Category">Kategori</label>
                 </div>
                 <div class="total-price">
                     <div class="input-field number inputjs">
-                        <input type="number" name="total" step="0.01">
-                        <label for="total">Total pris</label>
+                        <input type="number" name="Price" step="0.01">
+                        <label for="Price">Total pris</label>
                     </div>
                     <div class="input-field select inputjs">
-                        <select name="currency">
+                        <select name="Currency_Id">
                             <option value="DKK" selected>DKK</option>
                         </select>
-                        <label for="currency">Valuta</label>
+                        <label for="Currency_Id">Valuta</label>
                     </div>
                 </div>
                 <div class="input-field date inputjs">
-                    <input type="date" name="date">
-                    <label for="date">Dato</label>
+                    <input type="date" name="Date">
+                    <label for="Date">Dato</label>
                 </div>
                 <div class="input-field textarea inputjs">
-                    <textarea name="notes" rows="3" cols="30"></textarea>
-                    <label for="notes">Noter</label>
+                    <textarea name="Notes" rows="3" cols="30"></textarea>
+                    <label for="Notes">Noter</label>
                 </div>
                 <div class="input-field textarea inputjs">
-                    <textarea name="content" rows="3" cols="30" disabled></textarea>
-                    <label for="content">Indhold</label>
+                    <textarea name="ContentPreview" rows="3" cols="30" disabled></textarea>
+                    <input type="hidden" name="Content"/>
+                    <label for="Content">Indhold</label>
                 </div>
                 <div class="input-field submit">
-                    <input type="submit" name="saveReceipt" value="Gem">
-                    <label for="saveReceipt"></label>
+                    <input type="submit" value="Gem">
                 </div>
             </div>
 

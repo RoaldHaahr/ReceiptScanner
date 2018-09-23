@@ -9,7 +9,7 @@ namespace ReceiptScanner.Controllers
     {
         public ActionResult Index()
         {
-            if (Session["userID"] == null)
+            if (Session["User_Id"] == null)
             {
                 ViewBag.errorMessage = "Login to see this page";
                 return null;

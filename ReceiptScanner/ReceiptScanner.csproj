@@ -203,6 +203,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="ContractResolvers\CamelCaseContractResolver.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CamGoogleController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ReceiptController.cs" />
@@ -215,6 +216,22 @@
     <Compile Include="Migrations\201805291336403_201805291535.cs" />
     <Compile Include="Migrations\201805291336403_201805291535.Designer.cs">
       <DependentUpon>201805291336403_201805291535.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808180814369_test.cs" />
+    <Compile Include="Migrations\201808180814369_test.Designer.cs">
+      <DependentUpon>201808180814369_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809231408304_mig.cs" />
+    <Compile Include="Migrations\201809231408304_mig.Designer.cs">
+      <DependentUpon>201809231408304_mig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809231411538_mig1.cs" />
+    <Compile Include="Migrations\201809231411538_mig1.Designer.cs">
+      <DependentUpon>201809231411538_mig1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809231412338_mig1612.cs" />
+    <Compile Include="Migrations\201809231412338_mig1612.Designer.cs">
+      <DependentUpon>201809231412338_mig1612.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\EntityModels\Account.cs" />
@@ -288,6 +305,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="EventHandlers\" />
+    <Folder Include="Views\Account\" />
     <Folder Include="Views\Receipt\" />
   </ItemGroup>
   <ItemGroup>
@@ -309,6 +327,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201805291336403_201805291535.resx">
       <DependentUpon>201805291336403_201805291535.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808180814369_test.resx">
+      <DependentUpon>201808180814369_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809231408304_mig.resx">
+      <DependentUpon>201809231408304_mig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809231411538_mig1.resx">
+      <DependentUpon>201809231411538_mig1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809231412338_mig1612.resx">
+      <DependentUpon>201809231412338_mig1612.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

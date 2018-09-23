@@ -80,9 +80,12 @@ namespace ReceiptScanner.Controllers
         [HttpPost]
         public ActionResult Save(Receipt receipt)
         {
-            if (Session["userID"] == null || Session["accountID"] == null)
+            //if (Session["User_Id"] == null || Session["Account_Id"] == null)
+
+            if (Session["User_Id"] == null)
             {
-                return null;
+                ViewBag.errorMessage = "Please login";
+                return View("../User/Login");
             }
             var db = new DatabaseContext();
             db.Receipts.Add(
@@ -95,9 +98,9 @@ namespace ReceiptScanner.Controllers
                     Category = receipt.Category,
                     Notes = receipt.Notes,
                     Base64_Image = receipt.Base64_Image,
-                    Currency_Id = receipt.Currency_Id,
-                    Account_Id = Convert.ToInt32(Session["accountID"]),
-                    User_Id = Convert.ToInt32(Session["userID"])
+                    //Currency_Id = receipt.Currency_Id,
+                    //Account_Id = Convert.ToInt32(Session["Account_Id"]),
+                    User_Id = Convert.ToInt32(Session["User_Id"])
                 }
             );
             db.SaveChanges();
